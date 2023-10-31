@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/22cf143bf2.js" crossorigin="anonymous"></script>
+
+<link href='https://fonts.googleapis.com/css?family=Berkshire Swash' rel='stylesheet'>
+    <link  rel="stylesheet" href="/css/style.css" >
+</head>
+<body style="background-color:#fff;">
+  <!-- navbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaar- -->
+  <nav  class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand"style="font-family: 'Montserrat'" href="/">Main</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+      <a class="navbar-brand" style="font-family: 'Montserrat'" href="about">About</a>
+      </li>
+      <li class="nav-item active">
+      <a class="navbar-brand" style="font-family: 'Montserrat'" href="home">My Event <i  class='bx bx-calendar-event'></i></a>
+      </li>
+      <li class="nav-item" width="520px">
+      <a class="navbar-brand" width="520px" style="font-family: 'Montserrat'" href="saved">I participate <i class='bx bx-heart' ></i></a>
+      </li>
+      <% if(req.isAuthenticated()){%>
+          <% if (user.role=="admin"){%>
+      <li class="nav-item">
+      <a class="navbar-brand" style="font-family: 'Montserrat'" href="users">Users <i class='bx bx-user-circle' style='color:rgba(0,0,0,0.89)' ></i></a>
+      </li>
+      <%}%>  <%}%>
+    </ul>
+  </div>
+
+
+    <% if(req.isAuthenticated()){%>
+
+      <form  action="/account" method="get">
+        <div style="padding-right:10px;" >
+            <button  type="submit"  style="font-family: 'Montserrat';background-color:#ffd800" class="btn btn-outline-dark"><%=user.username%></button>
+        </div>
+      </form>
+      <form  action="/logout" method="get">
+        <div style="padding-right:10px;" >
+            <button  type="submit"  style="font-family: 'Tahoma'"  class="btn btn-info" ><big><i class='bx bx-log-out'></i></big></button>
+        </div>
+      </form>
+  <%}else{%>
+
+    <form  action="/signIN" method="get">
+      <div style="padding-right:10px;" >
+          <button  type="submit"  style="font-family: 'Tahoma'" class="btn btn-info">Sign in</button>
+      </div>
+    </form>
+
+  <form  action="/registr" method="get">
+    <div  style="padding-right:10px;">
+        <button   type="submit"  style="font-family: 'Tahoma'" class="btn btn-dark">Sign up</button>
+    </div>
+    </form>
+  <%}%>
+
+</nav>
+<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333; max-width: 1500px; margin: 0 auto; padding: 20px;">
+
+  <p style="font-size: 40px; font-weight: bold; text-align: center;">Welcome to Bondwith: Where Connections Come to Life</p>
+
+  <p style="font-size: 18px;">At Bondwith, we believe that the best experiences in life are the ones shared. In a world buzzing with digital interactions, we recognized a simple yet profound truth: genuine connections are formed when people come together, face-to-face, and share real-life moments. Bondwith is not just a platform; it's a bridge that brings people closer, fostering companionship and camaraderie.</p>
+
+  <p style="font-size: 25px;"><strong>Our Mission: Creating Bonds, One Event at a Time</strong></p>
+
+  <p style="font-size: 18px;">Bondwith is more than just an event platform; it's a community built on the foundation of shared interests, mutual respect, and the joy of discovering new experiences together. Our mission is to empower individuals to enrich their lives by connecting with others who share their passions. Whether you're an event organizer seeking an enthusiastic audience or someone looking for the perfect company to attend that concert, hike, or coffee tasting, Bondwith is here to make it happen.</p>
+
+<p style="font-size: 27px; text-align: center;"><em>Discover. Connect. Bond.</em></p>
+
+  <hr style="border: 1px solid #ccc; margin-top: 20px; margin-bottom: 20px;">
+  <p style="font-size: 35px; font-weight: bold; text-align: center;">Our Partners</p>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <div style="flex: 0 0 30%;"><img src="img/coffeeboom.jpg" alt="CoffeeBoom Logo" style="max-width: 100%; height: auto;"></div>
+      <div style="flex: 0 0 65%;">
+          <h2>CoffeeBoom: The Essence of Elegance in Every Sip</h2>
+          <p style="font-size: 18px;">CoffeeBoom, our esteemed partner, embodies the art of brewing perfection. Their meticulously selected beans, expert roasting techniques, and dedication to the craft make every cup a masterpiece. At Bondwith events, CoffeeBoom elevates the atmosphere with the rich aroma of freshly brewed coffee, turning gatherings into warm and inviting moments of connection.</p>
+      </div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+       <div style="flex: 0 0 65%;">
+          <h2>Lavash Food: A Gastronomic Journey Through Tradition</h2>
+          <p style="font-size: 18px;">Lavash Food, our culinary companion, takes us on a culinary odyssey through traditional flavors and culinary innovation. With recipes rooted in heritage and infused with contemporary creativity, Lavash Food crafts dishes that tantalize taste buds and ignite conversations. Their culinary expertise transforms Bondwith events into feasts that celebrate the art of dining.</p>
+      </div>
+      <div style="flex: 0 0 30%;"><img src="img/lavashfood.jpg" alt="Lavash Food Logo" style="max-width: 100%; height: auto;"></div>
+     
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <div style="flex: 0 0 30%;"><img src="img/crepecafe.jpg" alt="Crepe Cafe Logo" style="max-width: 100%; height: auto;"></div>
+      <div style="flex: 0 0 65%;">
+          <h2>Crepe Cafe: Sweet Creations, Sweet Connections</h2>
+          <p style="font-size: 18px;">Crepe Cafe, our confectionery partner, weaves sugary dreams into reality. Their delicate crepes, skillfully crafted and generously filled, are a testament to the artistry of desserts. At Bondwith events, Crepe Cafe adds a touch of sweetness to our gatherings, turning moments of companionship into indulgent celebrations of life’s little joys.</p>
+      </div>
+  </div>
+
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <div style="flex: 0 0 65%;">
+          <h2>Peek-a-boo: Taste the Streets of Korea</h2>
+          <p style="font-size: 18px;">Peek-a-boo, our Korean street food haven, brings the vibrant flavors of Seoul's bustling streets to Bondwith events. With sizzling grills and aromatic spices, they create an immersive experience that transports taste buds to the heart of Korea. Peek-a-boo’s delectable creations add an exciting twist to our events, making every bite a journey through Korean culinary traditions.</p>
+      </div><div style="flex: 0 0 30%;"><img src="img/peekaboo.jpg" alt="Peek-a-boo Logo" style="max-width: 100%; height: auto;"></div>
+      
+  </div>
+
+  <p style="font-size: 18px;">Savor the Bonds, One Bite at a Time</p>
+
+  <p style="font-size: 18px;">We extend our deepest gratitude to CoffeeBoom, Lavash Food, Crepe Cafe, and Peek-a-boo for infusing Bondwith events with their culinary mastery and warm hospitality. Together, we curate events where flavor meets friendship, where every bite is a step closer to forging unforgettable bonds. Join us in savoring these culinary delights and relish the moments of togetherness they help us create.</p>
+
+  <p style="font-size: 20px; text-align: center;">Indulge in the warmth of friendship, one flavor at a time!</p>
+
+</div>
+
+</body>
+<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+<footer>
+        <p style="  margin-top: 30px;">© 2018 Gandalf</p>
+    </footer>
+</html>
